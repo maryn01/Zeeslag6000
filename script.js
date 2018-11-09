@@ -101,16 +101,16 @@ var spelerBord = Borden[spelerBordRandomNummer];
 function knopDruk(x, y) {
     var alGeklikt = false;
     function tweeOfDrie() {
-        alert('je hebt hier al geklikt  !');
+        alert('je hebt hier al geklikt!');
         alGeklikt = true;
     }
     switch(computerBord[x][y]) {
         case 0:
-            alert('je schoot mis  !');
+            alert('je schoot mis!');
             computerBord[x][y] += 2;
             break;
         case 1:
-            alert('je schoot raak  !');
+            alert('je schoot raak!');
             computerBord[x][y] += 2;
             break;
         case 2:
@@ -235,11 +235,11 @@ function maakBord() {
     $('#computerScore').html(scoreComputer + '/15 geraakt');
 //einde spel + reset van het spel.
     if(scoreSpeler == 15) {
-        alert('you have verloren');
+        alert('je hebt verloren');
         location.reload();
     }
     if(scoreComputer == 15) {
-        alert('you have gewonnen');
+        alert('je hebt gewonnen');
         location.reload();
     }
 }
