@@ -5,6 +5,7 @@
  * 3 = boot geschoten
  */
 
+//De verschillende borden die aan het begin van het spel random worden gekozen voor zowel de computer als de speler.
 var Borden = [
     [
         [0,0,0,0,0,0,0,0,0,0],
@@ -79,7 +80,7 @@ var Borden = [
         [0,0,1,1,1,1,0,0,0,0]
     ]
 ]
-
+//functie om voor beide partijen een bord te kiezen, waarbij ze niet beide hetzelfde bord mogen hebben
 var computerBordRandomNummer = Math.floor(Math.random()*5);
 var spelerBordRandomNummer = Math.floor(Math.random()*5);
 
@@ -96,6 +97,7 @@ var computerBord = Borden[computerBordRandomNummer];
 
 var spelerBord = Borden[spelerBordRandomNummer];
 
+//geeft foutmelding zodra op een vakje word geklikt die al eerder aangeklikt is.
 function knopDruk(x, y) {
     var alGeklikt = false;
     function tweeOfDrie() {
@@ -124,7 +126,7 @@ function knopDruk(x, y) {
     
     maakBord();
 }
-
+//extra functie om de computer nog een beetje moeilijkheid te geven.
 var laatsGezienGoed = [null, null];
 var vorigLaatsGezienGoed = [null, null]
 var richting = null;
@@ -189,7 +191,7 @@ function computer() {
         }
     }
 }
-
+//functie die aangeeft wanneer de computer een zet mag doen.
 function computerZet(x,y) {
     switch(spelerBord[x][y]) {
         case 0:
@@ -207,7 +209,7 @@ function computerZet(x,y) {
             break;
     }
 }
-
+//functie die de borden maakt, coordinaten aan de knoppen geeft.
 function maakBord() {
     var scoreSpeler = 0;
     var bord = '';
@@ -217,7 +219,7 @@ function maakBord() {
             scoreSpeler += spelerBord[i][j] == 3 ? 1 : 0;
         }
     }
-
+//zorgt ervoor dat de hoeveelheid score correct word weergegeven.
     $('#spelerVeld').html(bord);
     $('#spelerScore').html(scoreSpeler + '/15 geraakt');
     //------------------------------------------------------------------------------------------------
@@ -231,7 +233,7 @@ function maakBord() {
     }
     $('#computerVeld').html(bord);
     $('#computerScore').html(scoreComputer + '/15 geraakt');
-
+//einde spel + reset van het spel.
     if(scoreSpeler == 15) {
         alert('you have verloren');
         location.reload();
